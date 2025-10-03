@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
+import 'package:gif/gif.dart';
+// import 'package:rive/rive.dart';
 
 ///RiveRuntimeRender
 class RiveAssetAnimation extends StatefulWidget {
@@ -21,20 +22,27 @@ class RiveAssetAnimation extends StatefulWidget {
 
 class _RiveAnimationState extends State<RiveAssetAnimation> {
   // Controller for playback
-  late RiveAnimationController<dynamic> _controller;
+  // late RiveAnimationController<dynamic> _controller;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = SimpleAnimation(widget.animName);
+    // _controller = SimpleAnimation(widget.animName);
   }
 
   @override
   Widget build(BuildContext context) {
-    return RiveAnimation.asset(
-      widget.assetPath,
-      controllers: [_controller],
+    String gif = "${widget.assetPath.split('.').first}.gif";
+    return ClipOval(
+      child: Gif(
+        image: AssetImage(gif),
+        duration: const Duration(seconds: 1),
+        autostart: Autostart.loop,
+        placeholder: (context) => const Text('Loading...'),
+      
+      ),
     );
+
   }
 }
