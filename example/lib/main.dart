@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:awesome_dialog/src/anims/rive_anim.dart';
 
 void main() => runApp(const MyApp());
 
@@ -25,6 +26,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+bool loop = true;
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -38,6 +41,64 @@ class _HomePageState extends State<HomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                Container(
+                  color: Colors.white,
+                  width: 1000,
+                  height: 1000,
+                  child: RiveAssetAnimation(
+                    assetPath: 'packages/awesome_dialog/assets/rive/info.riv',
+                    animName: loop ? 'appear_loop' : 'appear',
+                  ),
+                ),
+                Container(
+                  color: Colors.white,
+                  width: 1000,
+                  height: 1000,
+                  child: RiveAssetAnimation(
+                    assetPath:
+                        'packages/awesome_dialog/assets/rive/info_reverse.riv',
+                    animName: loop ? 'appear_loop' : 'appear',
+                  ),
+                ),
+                Container(
+                  color: Colors.white,
+                  width: 1000,
+                  height: 1000,
+                  child: RiveAssetAnimation(
+                    assetPath:
+                        'packages/awesome_dialog/assets/rive/question.riv',
+                    animName: loop ? 'appear_loop' : 'appear',
+                  ),
+                ),
+                Container(
+                  color: Colors.white,
+                  width: 1000,
+                  height: 1000,
+                  child: RiveAssetAnimation(
+                    assetPath:
+                        'packages/awesome_dialog/assets/rive/warning.riv',
+                    animName: loop ? 'appear_loop' : 'appear',
+                  ),
+                ),
+                Container(
+                  color: Colors.white,
+                  width: 1000,
+                  height: 1000,
+                  child: RiveAssetAnimation(
+                    assetPath: 'packages/awesome_dialog/assets/rive/error.riv',
+                    animName: loop ? 'appear_loop' : 'appear',
+                  ),
+                ),
+                Container(
+                  color: Colors.white,
+                  width: 1000,
+                  height: 1000,
+                  child: RiveAssetAnimation(
+                    assetPath:
+                        'packages/awesome_dialog/assets/rive/success.riv',
+                    animName: loop ? 'appear_loop' : 'appear',
+                  ),
+                ),
                 AnimatedButton(
                   text: 'Info Dialog fixed width and square buttons',
                   pressEvent: () {
