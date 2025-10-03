@@ -16,6 +16,7 @@ class RiveAssetAnimation extends StatefulWidget {
 
   ///Name od the animation to load
   final String animName;
+
   @override
   State<RiveAssetAnimation> createState() => _RiveAnimationState();
 }
@@ -34,20 +35,16 @@ class _RiveAnimationState extends State<RiveAssetAnimation> {
   @override
   Widget build(BuildContext context) {
     String gif = "${widget.assetPath.split('.').first}.gif";
-    return Stack(
-      children: [
-        ClipOval(
-          child: Gif(
-            image: AssetImage(gif),
-            duration: const Duration(seconds: 1),
-            autostart: Autostart.loop,
-            placeholder: (context) => const Text('Loading...'),
-          
-          ),
+    return ClipOval(
+      child: Container(
+        padding: const EdgeInsets.all(5),
+        child: Gif(
+          image: AssetImage(gif),
+          duration: const Duration(seconds: 3),
+          autostart: Autostart.loop,
+          placeholder: (context) => const Text('Loading...'),
         ),
-        Text('data')
-      ],
+      ),
     );
-
   }
 }
