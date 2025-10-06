@@ -27,6 +27,7 @@ class _RiveAnimationState extends State<RiveAssetAnimation> {
 
   @override
   void initState() {
+
     super.initState();
 
     // _controller = SimpleAnimation(widget.animName);
