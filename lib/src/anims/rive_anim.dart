@@ -37,14 +37,11 @@ class _RiveAnimationState extends State<RiveAssetAnimation> {
   Widget build(BuildContext context) {
     String gif = "${widget.assetPath.split('.').first}.gif";
     return ClipOval(
-      child: Container(
-        padding: const EdgeInsets.all(5),
-        child: Gif(
-          image: AssetImage(gif),
-          duration: const Duration(seconds: 3),
-          autostart: Autostart.loop,
-          placeholder: (context) => const Text('Loading...'),
-        ),
+      child: Gif(
+        image: AssetImage(gif),
+        duration: const Duration(milliseconds: 3500),
+        autostart: Autostart.loop,
+        placeholder: (context) => const Text('Loading...'),
       ),
     );
   }
