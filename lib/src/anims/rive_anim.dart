@@ -35,6 +35,7 @@ class _RiveAnimationState extends State<RiveAssetAnimation> {
 
   @override
   Widget build(BuildContext context) {
+    return  Text('Loading... check cache');
     String gif = "${widget.assetPath.split('.').first}.gif";
     return ClipOval(
       child: Gif(
