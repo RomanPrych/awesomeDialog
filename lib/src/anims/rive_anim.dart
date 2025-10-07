@@ -35,14 +35,21 @@ class _RiveAnimationState extends State<RiveAssetAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    return  Text('Loading... check cache');
     String gif = "${widget.assetPath.split('.').first}.gif";
-    return ClipOval(
-      child: Gif(
-        image: AssetImage(gif),
-        duration: const Duration(milliseconds: 3500),
-        autostart: Autostart.loop,
-        placeholder: (context) => const Text('Loading...'),
+    return Container(
+      color: Colors.red,
+      padding: EdgeInsets.all(10),
+      child: Container(
+        color: Colors.white,
+        padding: EdgeInsets.all(10),
+        child: ClipOval(
+          child: Gif(
+            image: AssetImage(gif),
+            duration: const Duration(milliseconds: 3500),
+            autostart: Autostart.loop,
+            placeholder: (context) => const Text('Loading...'),
+          ),
+        ),
       ),
     );
   }
