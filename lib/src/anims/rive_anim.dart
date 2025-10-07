@@ -36,13 +36,16 @@ class _RiveAnimationState extends State<RiveAssetAnimation> {
   @override
   Widget build(BuildContext context) {
     String gif = "${widget.assetPath.split('.').first}.gif";
-    return ClipOval(
-      clipper: _InsetOvalClipper(2),
-      child: Gif(
-        image: AssetImage(gif),
-        duration: const Duration(milliseconds: 3500),
-        autostart: Autostart.loop,
-        placeholder: (context) => const SizedBox.shrink(),
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: ClipOval(
+        clipper: _InsetOvalClipper(2),
+        child: Gif(
+          image: AssetImage(gif),
+          duration: const Duration(milliseconds: 3500),
+          autostart: Autostart.loop,
+          placeholder: (context) => const SizedBox.shrink(),
+        ),
       ),
     );
   }
