@@ -36,21 +36,28 @@ class _RiveAnimationState extends State<RiveAssetAnimation> {
   @override
   Widget build(BuildContext context) {
     String gif = "${widget.assetPath.split('.').first}.gif";
-    return Container(
-      color: Colors.red,
-      padding: EdgeInsets.all(10),
-      child: Container(
-        color: Colors.white,
-        padding: EdgeInsets.all(10),
-        child: ClipOval(
-          child: Gif(
-            image: AssetImage(gif),
-            duration: const Duration(milliseconds: 3500),
-            autostart: Autostart.loop,
-            placeholder: (context) => const Text('Loading...'),
-          ),
-        ),
+    return ClipOval(
+      clipper: _InsetOvalClipper(2),
+      child: Gif(
+        image: AssetImage(gif),
+        duration: const Duration(milliseconds: 3500),
+        autostart: Autostart.loop,
+        placeholder: (context) => const SizedBox.shrink(),
       ),
     );
   }
+
+
+}
+class _InsetOvalClipper extends CustomClipper<Rect> {
+  final double inset;
+  _InsetOvalClipper(this.inset);
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromLTWH(inset, inset, size.width - inset * 2, size.height - inset * 2);
+  }
+
+  @override
+  bool shouldReclip(_InsetOvalClipper oldClipper) => inset != oldClipper.inset;
 }
